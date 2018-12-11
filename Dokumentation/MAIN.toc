@@ -13,3 +13,11 @@
 \contentsline {subsubsection}{Wie oft messen wir?}{1}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}Routine}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Website}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Website}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Datenbankdesign}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.1}Struktur der Datenbank}{3}
