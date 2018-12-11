@@ -1,10 +1,11 @@
 \pagestyle{fancy}
 \fancyfoot[R]{Aron, Amareldo, Aldo}
+In diesem Kapitel geht es um den Aufbau der Datenbank und der Website. Dieser Kapitel wurde von \textbf{Aron Terzeta, Aldo Sheldija, Amareldo Isufi} geschriben. 
 Die Werte, die von den Messkisten geschickt werden, werden in einem Datenbank gespeichert. Jede Kiste hat einen eigenen ID, Raum, wo sie ist und die MAC-Adresse der Raspberry PI. Die server-seitige Programmierung wird mit PHP gemacht und der client-seitige Programmierung (die Website) mit HTML,CSS f\"ur Design der Website und PHP, die uns hilft, die Website mit dem Webserver kommunizieren zu k\"onnen. 
 	\section{Website}
 	Die Webseite ist ziemlich einfach. Es besteht auf zwei Pages: Home und Messkisten. 
 	Bei Home(Abb.\ref{fi:Web1}) werden die Temperaturdaten eingezeigt. Es gibt ein kleines Formular, das den Graph ver\"andert, abh\"anglich von welcher Klasse, Einheit oder Datum der Benutzer eingibt.	
-	Bei Messkiste (Abb.\ref{fi:Web2}) werden die Daten der Messkisten angezeigt und auch ver\"andert werden. Wenn eine neue Messkiste angelegt wird, hat sie keine Raum-bezeichnung. Das wird \"uber die Website gemacht, mit dem "Edit" Button am Ende der jeden Zeile. 
+	Bei Messkiste (Abb.\ref{fi:Web2}) werden die Daten der Messkisten angezeigt und auch ver\"andert werden. Wenn eine neue Messkiste angelegt wird, hat sie keine Raum-bezeichnung. Das wird \"uber die Website gemacht, mit dem 'Edit' Button am Ende der jeden Zeile. 
 		\begin{figure}[ht]
 		\centering
 		\includegraphics[scale=0.4]{./bilder/Page_1.png}
@@ -36,5 +37,8 @@ Die Werte, die von den Messkisten geschickt werden, werden in einem Datenbank ge
 	Die zweite Tabelle hei{\ss}t 'Messwerte' und hat 5 Spalten. Diese Tabelle wird mit der ersten Tabelle durch einen Fremdschl\"ussel verbundet.
 	\begin{itemize}
 		\item Die erste Spalte ist 'ID', mit der die Messwert identifiziert wird. ID ist unique und jede Messkiste hat eine eigene ID. Die ID wird selbst f\"ur jede neue Messkite um eins erh\"oht. Datentyp von ID ist 'int' und darf keine Null-Werte haben. 
-		\item Die zweite Spalte ist 'ID_Messkiste'
+		\item Die zweite Spalte ist 'ID\_Messkiste'. Diese Spalte dient als Fremdschl\"ussel, der die ID von der Spalte 'Messkiste' referenziert. Datentyp ist 'int'.
+		\item Die dritte Spalte ist 'Datum'. In dieser Spalte wird gespeichert, wann die Werte vom Sensor im Webserver gekommen sind. Datentyp ist 'date'.
+		\item Die vierte Spalte ist 'Temp'. Der Datentyp ist 'double'. Die Temperatur wird vom Sensor gemessen und in der Datenbank gespeichert.
+		\item Die f\"unfte Spalte ist 'Time'. Diese Spalte speichert die genaue Uhrzeit. Diese Uhrzeit werden wir brauchen, wenn wir die Temperaturen von einem Tag in Website angezeigt wird.  
 	\end{itemize}
