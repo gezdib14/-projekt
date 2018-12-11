@@ -1,0 +1,31 @@
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{nomencl}
+\usepackage{biblatex}
+\renewcommand{\nomname}{Abk\"urzungsverzeichnis}
+\makenomenclature
+\begin{document}
+	\frontmatter
+	\pagestyle{fancy}
+	\fancyhead{}
+	\fancyfoot{}
+	\fancyfoot[L]{4ay}
+	\fancyfoot[R]{\thepage  von \pageref{LastPage}}
+	\printnomenclature
+	
+	\tableofcontents
+	\mainmatter
+	\chapter{Inspektion}
+	\input{inspektion.tex}
+	\newpage
+	\section{Routine}
+	
+	\backmatter
+	\listoffigures
+	\listoftables
+	\printbibliography
+\end{document}
