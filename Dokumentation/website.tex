@@ -1,6 +1,6 @@
 \pagestyle{fancy}
 \fancyfoot[R]{A.Terzeta, A.Isufi, A.Sheldija}
-In diesem Kapitel geht es um den Aufbau der Datenbank und der Website.
+In diesem Kapitel geht es um die Verbindung des PC-s mit dem Server und der Website.
 Die Werte, die von den Messkisten geschickt werden, werden in einem Datenbank gespeichert. Jede Kiste hat einen eigenen ID, Raum, wo sie ist und die MAC-Adresse der Raspberry PI. Die server-seitige Programmierung wird mit PHP gemacht und der client-seitige Programmierung (die Website) mit HTML,CSS f\"ur Design der Website und PHP, die uns hilft, die Website mit dem Webserver kommunizieren zu k\"onnen. 
 	\section{Website}
 	Die Webseite ist ziemlich einfach. Es besteht auf zwei Pages: Home und Messkisten. 
@@ -42,3 +42,6 @@ Die Werte, die von den Messkisten geschickt werden, werden in einem Datenbank ge
 		\item Die vierte Spalte ist 'Temp'. Der Datentyp ist 'double'. Die Temperatur wird vom Sensor gemessen und in der Datenbank gespeichert.
 		\item Die f\"unfte Spalte ist 'Time'. Diese Spalte speichert die genaue Uhrzeit. Diese Uhrzeit werden wir brauchen, wenn wir die Temperaturen von einem Tag in Website angezeigt wird.  
 	\end{itemize}
+	\subsection{Installation}
+	Zuerst m\"ussen die packages installiert werden, damit mysql-server und php bzw.Apache Server laufen kann und der Benutzer sie verwenden kann. "apache2, mysql-server,php libapache2-mod-php php-mysql". Alles, was mit php bzw. mit Websiten yu tun haben, sind im Verzeichnis /var/www. Wir erstellen einen neuen Verzeichnis(website) da und in diesem Verzeichnis speichern wir die PHP-Datei und alle anderen, die mit der Website zu tun haben z.B. Bilder, CSS-Datei. WWW-Data ist der Standard-Benutzer f\"ur WWW und wir brauchen den neuen Verzeichnis(website) diese Rechte geben. Befehl ist: chown www-data <Das Verzeichnis> und wir brauchen auch den Befehl 'chmod 2750 <Das Verzeichnis>'. Dann \"offnen wir die Datei 000-default.conf in dem Verzeichnis /etc/apache2/sites-available und erstellen da ein Alias + ein Directory. Nachdem alle Schritte fertig sind, \"ofnnen wir die PHP-Datei und arbeiten da. 
+	Der Grund-Design der html-seite mit metacharset="UTF-8". Da verbinden wir auch die CSS-Datei. Im Body-Bereich machen wir ein DIV, wo der Graph gespeichert wird. Wir haben daf\"ur 'Charts' verwendet(CanvasJs.Chart). Im PHP-Bereich verbinden wir uns mit dem Webserver mithilfe des PDOs. Nachdem wir uns mit dem verbinden, erstellen wir einige 'select-statement', welche wir brauchen, um den Graph mit Temperatur ausf\"ullen. 
